@@ -1,0 +1,15 @@
+version: '3'
+services:
+  web:
+   image: fabricainfo/assinatura_digital:1.0
+   container_name: teste_pratico
+   volumes:
+     - /c/Users/Public/projetos_docker/teste_pratico:/var/www/html/
+     #- /var/www/html/vhosts/site:/etc/apache2/sites-available
+   ports:
+     #- 8190:80
+     - 8191:8000
+#   links:
+#     - db:postgres
+   stdin_open: true
+   tty: true
