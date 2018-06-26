@@ -1,0 +1,26 @@
+version: '3'
+services:
+#  db:
+#    image: postgres
+#    container_name: postgres
+#    restart: always
+#    ports:
+#      - 5433:5432
+#    environment:
+#      POSTGRES_USER: postgres
+#      POSTGRES_PASSWORD: senha
+#      POSTGRES_DB: AssinaturaDigital
+  web:
+   image: fabricainfo/assinatura_digital:1.0
+   container_name: teste_pratico
+   volumes:
+     - ./:/var/www/html/
+     #- /c/Users/Public/projetos_docker/teste_pratico:/var/www/html/
+     - /clientes/:/clientes/
+   ports:
+     - 9099:80
+     - 8000:8000
+   #links:
+     #- db:postgres
+   stdin_open: true
+   tty: true
