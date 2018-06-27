@@ -1,5 +1,5 @@
 web:
-    aimage: hitalos/laravel:latest
+    image: hitalos/laravel:latest
     container_name: teste_pratico
     ports:
         - 8577:80
