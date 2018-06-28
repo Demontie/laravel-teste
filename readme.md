@@ -1,6 +1,6 @@
 # Projeto CRUD aluno e cursos
 
-Teste
+CRUD simples de cadastro de aluno e curso, sujeito a modificação.
 
 # Instalação
 Requisitos <br>
