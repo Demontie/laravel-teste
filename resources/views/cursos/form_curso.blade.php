@@ -20,35 +20,34 @@
     </div>s
     <button type="submit" class="btn btn-primary">Salvar</button>
     {{ Form::close() }}
-@endsection
-{{--<script>--}}
-{{--$("#form_register").submit(function (e) {--}}
-{{--e.preventDefault();--}}
-{{--var formData = $("#form_register").serialize();--}}
-{{--//'url' => route('cliente.cadastro'),--}}
-{{--$.ajax({--}}
-{{--url: 'cliente/cadastro',--}}
-{{--type: 'POST',--}}
-{{--dataType: 'json',--}}
-{{--data: formData,--}}
-{{--success: function (data) {--}}
-{{--$('.invalid-tooltip').hide();--}}
-{{--$('.invalidar-campo').removeClass('invalidar-campo');--}}
-{{--alert(data.message);--}}
-{{--window.location = data.redirect_to;--}}
-{{--},--}}
-{{--error: function (data) {--}}
-{{--var erros = data.responseJSON.errors;--}}
-{{--$('.invalid-tooltip').hide();--}}
-{{--$('.invalidar-campo').removeClass('invalidar-campo');--}}
-{{--$.each(erros, function (iddiv, value) {--}}
-{{--$('#erro-' + iddiv).html(value);--}}
-{{--$('#' + iddiv).addClass('invalidar-campo');--}}
-{{--$('#erro-' + iddiv).show();--}}
-{{--});--}}
-{{--$("#form_register").addClass('was-validated');--}}
-{{--}--}}
-{{--});--}}
-{{--});--}}
 
-{{--</script>--}}
+    <script>
+        $("#form_curso").submit(function (e) {
+            e.preventDefault();
+            var formData = $("#form_curso").serialize();
+            $.ajax({
+                url: 'create/curso',
+                type: 'POST',
+                dataType: 'json',
+                data: formData,
+                success: function (data) {
+                    alert(data.message);
+                    window.location = data.redirect_to;
+                },
+                error: function (data) {
+                    var erros = data.responseJSON.errors;
+                    // $('.invalid-tooltip').hide();
+                    // $('.invalidar-campo').removeClass('invalidar-campo');
+                    // $.each(erros, function (iddiv, value) {
+                    //     $('#erro-' + iddiv).html(value);
+                    //     $('#' + iddiv).addClass('invalidar-campo');
+                    //     $('#erro-' + iddiv).show();
+                    // });
+                    $("#form_register").addClass('was-validated');
+                }
+            });
+        });
+
+    </script>
+@endsection
+
