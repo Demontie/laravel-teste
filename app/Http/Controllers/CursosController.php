@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Alunos;
 use App\Cursos;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,9 @@ class CursosController extends Controller
      */
     public function index()
     {
-        //
+        $alunos = Alunos::paginate(10);
+        $cursos = Cursos::paginate(10);
+        return view('index',compact('alunos','cursos'));
     }
 
     /**

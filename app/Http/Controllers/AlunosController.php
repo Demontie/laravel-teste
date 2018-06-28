@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Alunos;
+use App\Cursos;
 use Illuminate\Http\Request;
 
 class AlunosController extends Controller
@@ -24,7 +25,8 @@ class AlunosController extends Controller
      */
     public function create()
     {
-        //
+        $cursos = Cursos::all();
+        return view('alunos.form_aluno',compact('cursos'));
     }
 
     /**

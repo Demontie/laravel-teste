@@ -5,26 +5,17 @@ web:
         - 8577:80
     volumes:
         - ./:/var/www
-    links:
-        - db
-    environment:
-        DB_HOST: db
-        DB_DATABASE: teste_pratico
-        DB_USERNAME: demontie
-        DB_PASSWORD: 112233
-        DB_CONNECTION: pgsql
+    #links:
+     #   - db
     stdin_open: true
     tty: true
 db:
-    image: postgres
-    container_name: postgres_teste
-    environment:
-        # with mysql
-        #MYSQL_DATABASE: dbname
-        #MYSQL_USER: username
-        #MYSQL_PASSWORD: p455w0rd
-
-        # with postgres
-        POSTGRES_DB: teste_pratico
-        POSTGRES_USER: demontie
-        POSTGRES_PASSWORD: 112233
+  image: postgres
+  container_name: postgres2
+  #restart: always
+  ports:
+    - 5433:5432
+  environment:
+    POSTGRES_USER: postgres
+    POSTGRES_PASSWORD: senha
+    POSTGRES_DB: TestePratico
