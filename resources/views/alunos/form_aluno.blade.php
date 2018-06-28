@@ -17,23 +17,19 @@
             {{ Form::label('semestre', 'Semestre') }}
             {{ Form::number('semestre', ['class'=>'form-control', 'id'=>'semestre', 'autofocus', 'required','placeholder'=>'Semestre']) }}
         </div>
-        <div class="form-group col-sm-6">
-            {{ Form::label('numero_maricula', 'Número da matricula') }}
-            {{ Form::number('numero_maricula', ['class'=>'form-control', 'id'=>'numero_maricula', 'autofocus', 'required','placeholder'=>'Número da matricula']) }}
-        </div>
 
         <div class="form-group col-sm-6">
-            {{ Form::label('numero_maricula', 'Número da matricula') }}
+            {{ Form::label('status', 'Status') }}
             {{ Form::select('status', array('matriculado'=>'Matriculado','trancado'=>'Trancado','jubilado'=>'Jubilado'),['class'=>'form-control','id'=>'status']) }}
         </div>
 
         <div class="form-group col-sm-6">
-            {{ Form::label('numero_maricula', 'Número da matricula') }}
-            {{ Form::select('status', array('matriculado'=>'Matriculado','trancado'=>'Trancado','jubilado'=>'Jubilado'),['class'=>'form-control','id'=>'status']) }}
+            {{ Form::label('curso', 'Curso') }}
+            {{ Form::select('curso', $cursos,['class'=>'form-control','id'=>'curso']) }}
         </div>
     </div>
 
-    <button type="submit" class="btn btn-primary">Sign in</button>
+    <button type="submit" class="btn btn-success">Salvar</button>
 {{ Form::close() }}
 @endsection
 {{--<script>--}}

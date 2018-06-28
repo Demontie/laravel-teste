@@ -38,11 +38,20 @@ class CursosController extends Controller
      */
     public function store(Request $request)
     {
-        $curso = new Cursos();
-        $curso->cod_curso=$request->get('cod_curso');
-        $curso->nome_curso=$request->get('nome_curso');
-        $curso->instituicao_ensino=$request->get('instituicao_ensino');
-        $curso->save();
+        Cursos::create($request->all());
+
+
+//        $curso->cod_curso=$request->get('cod_curso');
+//        $curso->nome_curso=$request->get('nome_curso');
+//        $curso->instituicao_ensino=$request->get('instituicao_ensino');
+//        $curso->save();
+
+        //            return redirect('/login');
+        return response()->json([
+            'sucesso' => true,
+            'message'=>__('usuarios/controllers.usuarios_clientes.novo_usuario.sucesso.mensagem'),
+            'redirect_to' => url('login')
+        ]);
     }
 
     /**

@@ -37,13 +37,19 @@ class AlunosController extends Controller
      */
     public function store(Request $request)
     {
-        $aluno = new Alunos();
-        $aluno->nome_aluno=$request->get('nome_aluno');
-        $aluno->curso=$request->get('curso');
-        $aluno->numero_maricula=$request->get('numero_maricula');
-        $aluno->semestre=$request->get('semestre');
-        $aluno->status=$request->get('status');
-        $aluno->save();
+//        $aluno = new Alunos(); php atisan make:request
+        Alunos::create($request->all());
+//        $aluno->nome_aluno=$request->get('nome_aluno');
+//        $aluno->curso=$request->get('curso');
+//        $aluno->numero_maricula=$request->get('numero_maricula');
+//        $aluno->semestre=$request->get('semestre');
+//        $aluno->status=$request->get('status');
+        //            return redirect('/login');
+        return response()->json([
+            'sucesso' => true,
+            'message'=>'Cadastrado com sucesso',
+            'redirect_to' => url('login')
+        ]);
     }
 
     /**
@@ -78,7 +84,9 @@ class AlunosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        Alunos::findOrFail($id)->update($request->all());
+        return redirect('/');
+        //return view('index');
     }
 
     /**
@@ -89,6 +97,6 @@ class AlunosController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Alunos::destroy($id);
     }
 }
