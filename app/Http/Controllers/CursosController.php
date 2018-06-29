@@ -6,6 +6,7 @@ use App\Alunos;
 use App\Cursos;
 use Illuminate\Http\Request;
 
+
 class CursosController extends Controller
 {
     /**
@@ -15,7 +16,8 @@ class CursosController extends Controller
      */
     public function index()
     {
-        $alunos = Alunos::paginate(10);
+
+        $alunos = Alunos::with('cursos')->paginate(10);
         $cursos = Cursos::paginate(10);
         return view('index',compact('alunos','cursos'));
     }
@@ -27,7 +29,7 @@ class CursosController extends Controller
      */
     public function create()
     {
-        //
+        return view('cursos.form_curso');
     }
 
     /**
@@ -38,20 +40,16 @@ class CursosController extends Controller
      */
     public function store(Request $request)
     {
+
         Cursos::create($request->all());
 
-
-//        $curso->cod_curso=$request->get('cod_curso');
-//        $curso->nome_curso=$request->get('nome_curso');
-//        $curso->instituicao_ensino=$request->get('instituicao_ensino');
-//        $curso->save();
-
-        //            return redirect('/login');
-        return response()->json([
-            'sucesso' => true,
-            'message'=>__('usuarios/controllers.usuarios_clientes.novo_usuario.sucesso.mensagem'),
-            'redirect_to' => url('login')
-        ]);
+        return redirect('/');
+        //caso queira retorna json
+//        return response()->json([
+//            'sucesso' => true,
+//            'message'=>__('usuarios/controllers.usuarios_clientes.novo_usuario.sucesso.mensagem'),
+//            'redirect_to' => url('login')
+//        ]);
     }
 
     /**
