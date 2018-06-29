@@ -6,9 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Alunos extends Model
 {
-
+    protected $primaryKey = 'id';
     protected $fillable = ['nome_aluno','curso','numero_maricula','semestre','status'];
-    protected $guarded = ['id'];
     public $timestamps = false;
     protected $table = 'alunos';
 

@@ -76,8 +76,6 @@
                         </thead>
                         <tbody>
                         @forelse($alunos as $aluno)
-
-
                             <tr>
                                 <td>{{$aluno->cursos->first()->nome_curso}}</td>
                                 <td>{{$aluno->nome_aluno}}</td>

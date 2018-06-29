@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Alunos;
 use App\Cursos;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 
 class CursosController extends Controller
